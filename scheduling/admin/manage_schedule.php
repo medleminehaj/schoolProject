@@ -26,9 +26,9 @@ $rdata= json_decode($repeating_data);
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="" class="control-label">Faculty</label>
+						<label for="" class="control-label">Professeur</label>
 						<select name="faculty_id" id="" class="custom-select select2">
-							<option value="0">All</option>
+							<option value="0">Tout</option>
 						<?php 
 							$faculty = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM faculty order by concat(lastname,', ',firstname,' ',middlename) asc");
 							while($row= $faculty->fetch_array()):
@@ -38,15 +38,15 @@ $rdata= json_decode($repeating_data);
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Title</label>
+						<label for="" class="control-label">Titre</label>
 						<textarea class="form-control" name="title" cols="30" rows="3"><?php echo isset($title) ? $title : '' ?></textarea>
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Schedule Type</label>
+						<label for="" class="control-label">Type d'horaire</label>
 						<select name="schedule_type" id="" class="custom-select">
-							<option value="1" <?php echo isset($schedule_type) && $schedule_type == 1 ? 'selected' : ''  ?>>Class</option>
-							<option value="2" <?php echo isset($schedule_type) && $schedule_type == 2 ? 'selected' : ''  ?>>Meeting</option>
-							<option value="3" <?php echo isset($schedule_type) && $schedule_type == 3 ? 'selected' : ''  ?>>Others</option>
+							<option value="1" <?php echo isset($schedule_type) && $schedule_type == 1 ? 'selected' : ''  ?>>Classe</option>
+							<option value="2" <?php echo isset($schedule_type) && $schedule_type == 2 ? 'selected' : ''  ?>>Réunion</option>
+							<option value="3" <?php echo isset($schedule_type) && $schedule_type == 3 ? 'selected' : ''  ?>>Autres</option>
 						</select>
 					</div>
 					<div class="form-group">
@@ -54,24 +54,24 @@ $rdata= json_decode($repeating_data);
 						<textarea class="form-control" name="description" cols="30" rows="3"><?php echo isset($description) ? $description : '' ?></textarea>
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Location</label>
+						<label for="" class="control-label">Emplacement</label>
 						<textarea class="form-control" name="location" cols="30" rows="3"><?php echo isset($location) ? $location : '' ?></textarea>
 					</div>
 					<div class="form-group">
 						<div class="form-check">
 						  <input class="form-check-input" type="checkbox" value="1" id="is_repeating" name="is_repeating" <?php echo isset($is_repeating) && $is_repeating != 1 ? '' : 'checked' ?>>
 						  <label class="form-check-label" for="type">
-						   	Weekly Schedule
+						  Programme hebdomadaire
 						  </label>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group for-repeating">
-						<label for="dow" class="control-label">Days of Week</label>
+						<label for="dow" class="control-label">Jours de la semaine</label>
 						<select name="dow[]" id="dow" class="custom-select select2" multiple="multiple">
 							<?php 
-							$dow = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+							$dow = array(" Dimanche ", " Lundi ", " Mardi ", " Mercredi ", " Jeudi ", " Vendredi ", " Samedi ");
 							for($i = 0; $i < 7;$i++):
 							?>
 							<option value="<?php echo $i ?>"  <?php echo isset($dow_arr) && in_array($i,$dow_arr) ? 'selected' : ''  ?>><?php echo $dow[$i] ?></option>
@@ -79,23 +79,23 @@ $rdata= json_decode($repeating_data);
 						</select>
 					</div>
 					<div class="form-group for-repeating">
-						<label for="" class="control-label">Month From</label>
+						<label for="" class="control-label">Mois à partir de</label>
 						<input type="month" name="month_from" id="month_from" class="form-control" value="<?php echo isset($start) ? date("Y-m",strtotime($start)) : '' ?>">
 					</div>
 					<div class="form-group for-repeating">
-						<label for="" class="control-label">Month To</label>
+						<label for="" class="control-label">Mois à</label>
 						<input type="month" name="month_to" id="month_to" class="form-control" value="<?php echo isset($end) ? date("Y-m",strtotime($end)) : '' ?>">
 					</div>
 					<div class="form-group for-nonrepeating" style="display: none">
-						<label for="" class="control-label">Schedule Date</label>
+						<label for="" class="control-label">Date prévue</label>
 						<input type="date" name="schedule_date" id="schedule_date" class="form-control" value="<?php echo isset($schedule_date) ? $schedule_date : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Time From</label>
+						<label for="" class="control-label">Heure de</label>
 						<input type="time" name="time_from" id="time_from" class="form-control" value="<?php echo isset($time_from) ? $time_from : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Time To</label>
+						<label for="" class="control-label">Temps de</label>
 						<input type="time" name="time_to" id="time_to" class="form-control" value="<?php echo isset($time_to) ? $time_to : '' ?>">
 					</div>
 				</div>
@@ -143,7 +143,7 @@ $rdata= json_decode($repeating_data);
 		    type: 'POST',
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully saved",'success')
+					alert_toast("Données enregistrées avec succès",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

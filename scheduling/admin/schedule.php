@@ -11,14 +11,14 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<b>Schedule</b>
+						<b>Calendrier</b>
 						<span class="float:right"><button class="btn btn-primary btn-block btn-sm col-sm-2 float-right"  id="new_schedule">
-					<i class="fa fa-plus"></i> New Entry
+					<i class="fa fa-plus"></i> Nouvelle entrée
 				</button></span>
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<label for="" class="control-label col-md-2 offset-md-2">View Schedule of:</label>
+							<label for="" class="control-label col-md-2 offset-md-2">Voir le calendrier de:</label>
 							<div class=" col-md-4">
 							<select name="faculty_id" id="faculty_id" class="custom-select select2">
 								<option value=""></option>
@@ -51,7 +51,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height: :150px;
+		max-height: 150px;
 	}
 	.avatar {
 	    display: flex;
@@ -88,14 +88,14 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 <script>
 	
 	$('#new_schedule').click(function(){
-		uni_modal('New Schedule','manage_schedule.php','mid-large')
+		uni_modal('Nouvel horaire','manage_schedule.php','mid-large')
 	})
 	$('.view_alumni').click(function(){
-		uni_modal("Bio","view_alumni.php?id="+$(this).attr('data-id'),'mid-large')
+		uni_modal("Biographie","view_alumni.php?id="+$(this).attr('data-id'),'mid-large')
 		
 	})
 	$('.delete_alumni').click(function(){
-		_conf("Are you sure to delete this alumni?","delete_alumni",[$(this).attr('data-id')])
+		_conf("Etes-vous sûr de vouloir supprimer cet ancien élève ?","delete_alumni",[$(this).attr('data-id')])
 	})
 	
 	function delete_alumni($id){
@@ -106,7 +106,7 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Données supprimées avec succès",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
@@ -191,7 +191,7 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 				          events: evt,
 				          eventClick: function(e,el) {
 							   var data =  e.event.extendedProps;
-								uni_modal('View Schedule Details','view_schedule.php?id='+data.data_id,'mid-large')
+								uni_modal('Voir les détails du programme','view_schedule.php?id='+data.data_id,'mid-large')
 
 							  }
 				        });

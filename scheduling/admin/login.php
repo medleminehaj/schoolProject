@@ -10,7 +10,7 @@ ob_end_flush();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>School Faculty Scheduling System</title>
+  <title>Système de planification des horaires des professeurs de l'école</title>
  	
 
 <?php include('./header.php'); ?>
@@ -91,14 +91,14 @@ div#login-right::before {
   						
   					<form id="login-form" >
   						<div class="form-group">
-  							<label for="username" class="control-label">Username</label>
+  							<label for="username" class="control-label">Nom d'utilisateur</label>
   							<input type="text" id="username" name="username" class="form-control">
   						</div>
   						<div class="form-group">
-  							<label for="password" class="control-label">Password</label>
+  							<label for="password" class="control-label">Mot de passe</label>
   							<input type="password" id="password" name="password" class="form-control">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
+  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Se connecter</button></center>
   					</form>
   				</div>
   			</div>
@@ -114,7 +114,7 @@ div#login-right::before {
 <script>
 	$('#login-form').submit(function(e){
 		e.preventDefault()
-		$('#login-form button[type="button"]').attr('disabled',true).html('Logging in...');
+		$('#login-form button[type="button"]').attr('disabled',true).html('Connexion...');
 		if($(this).find('.alert-danger').length > 0 )
 			$(this).find('.alert-danger').remove();
 		$.ajax({
@@ -130,7 +130,7 @@ div#login-right::before {
 				if(resp == 1){
 					location.href ='index.php?page=home';
 				}else{
-					$('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>')
+					$('#login-form').prepend('<div class="alert alert-danger">Le nom d\'utilisateur ou le mot de passe est incorrect.</div>')
 					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
 				}
 			}

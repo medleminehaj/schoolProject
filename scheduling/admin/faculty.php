@@ -26,11 +26,11 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<b>faculty List</b>
+						<b>Liste des professeurs</b>
 						<span class="">
 
 							<button class="btn btn-primary btn-block btn-sm col-sm-2 float-right" type="button" id="new_faculty">
-					<i class="fa fa-plus"></i> New</button>
+					<i class="fa fa-plus"></i> Nouveau</button>
 				</span>
 					</div>
 					<div class="card-body">
@@ -48,7 +48,7 @@
 								<tr>
 									<th class="text-center">#</th>
 									<th class="">ID No</th>
-									<th class="">Name</th>
+									<th class="">Nom</th>
 									<th class="">Email</th>
 									<th class="">Contact</th>
 									<th class="text-center">Action</th>
@@ -79,9 +79,9 @@
 										 
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-outline-primary view_faculty" type="button" data-id="<?php echo $row['id'] ?>" >View</button>
-										<button class="btn btn-sm btn-outline-primary edit_faculty" type="button" data-id="<?php echo $row['id'] ?>" >Edit</button>
-										<button class="btn btn-sm btn-outline-danger delete_faculty" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+										<button class="btn btn-sm btn-outline-primary view_faculty" type="button" data-id="<?php echo $row['id'] ?>" >Voir</button>
+										<button class="btn btn-sm btn-outline-primary edit_faculty" type="button" data-id="<?php echo $row['id'] ?>" >Modifier</button>
+										<button class="btn btn-sm btn-outline-danger delete_faculty" type="button" data-id="<?php echo $row['id'] ?>">Supprimer</button>
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -105,7 +105,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height: :150px;
+		max-height: 150px;
 	}
 </style>
 <script>
@@ -113,18 +113,18 @@
 		$('table').dataTable()
 	})
 	$('#new_faculty').click(function(){
-		uni_modal("New Entry","manage_faculty.php",'mid-large')
+		uni_modal("Nouvelle entrée","manage_faculty.php",'mid-large')
 	})
 	$('.view_faculty').click(function(){
-		uni_modal("Faculty Details","view_faculty.php?id="+$(this).attr('data-id'),'')
+		uni_modal("Détails sur la faculté","view_faculty.php?id="+$(this).attr('data-id'),'')
 		
 	})
 	$('.edit_faculty').click(function(){
-		uni_modal("Manage Job Post","manage_faculty.php?id="+$(this).attr('data-id'),'mid-large')
+		uni_modal("Gérer les offres d'emploi","manage_faculty.php?id="+$(this).attr('data-id'),'mid-large')
 		
 	})
 	$('.delete_faculty').click(function(){
-		_conf("Are you sure to delete this topic?","delete_faculty",[$(this).attr('data-id')],'mid-large')
+		_conf("Etes-vous sûr de vouloir supprimer ce sujet?","delete_faculty",[$(this).attr('data-id')],'mid-large')
 	})
 
 	function delete_faculty($id){
@@ -135,7 +135,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Données supprimées avec succès",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

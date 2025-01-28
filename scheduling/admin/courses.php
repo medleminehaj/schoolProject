@@ -9,12 +9,12 @@
 			<form action="" id="manage-course">
 				<div class="card">
 					<div class="card-header">
-						    Course Form
+					Formulaire de cours
 				  	</div>
 					<div class="card-body">
 							<input type="hidden" name="id">
 							<div class="form-group">
-								<label class="control-label">Course</label>
+								<label class="control-label">Cours</label>
 								<input type="text" class="form-control" name="course">
 							</div>
 							<div class="form-group">
@@ -27,8 +27,8 @@
 					<div class="card-footer">
 						<div class="row">
 							<div class="col-md-12">
-								<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Save</button>
-								<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="_reset()"> Cancel</button>
+								<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Sauvegarder</button>
+								<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="_reset()"> Annuler</button>
 							</div>
 						</div>
 					</div>
@@ -41,14 +41,14 @@
 			<div class="col-md-8">
 				<div class="card">
 					<div class="card-header">
-						<b>course List</b>
+						<b>Liste des cours</b>
 					</div>
 					<div class="card-body">
 						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th class="text-center">#</th>
-									<th class="text-center">Course</th>
+									<th class="text-center">Cours</th>
 									<th class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -61,13 +61,13 @@
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
-										<p>Course: <b><?php echo $row['course'] ?></b></p>
+										<p>Cours: <b><?php echo $row['course'] ?></b></p>
 										<p>Description: <small><b><?php echo $row['description'] ?></b></small></p>
 										
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit_course" type="button" data-id="<?php echo $row['id'] ?>" data-course="<?php echo $row['course'] ?>" data-description="<?php echo $row['description'] ?>" >Edit</button>
-										<button class="btn btn-sm btn-danger delete_course" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+										<button class="btn btn-sm btn-primary edit_course" type="button" data-id="<?php echo $row['id'] ?>" data-course="<?php echo $row['course'] ?>" data-description="<?php echo $row['description'] ?>" >Modifier</button>
+										<button class="btn btn-sm btn-danger delete_course" type="button" data-id="<?php echo $row['id'] ?>">Supprimer</button>
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -105,14 +105,14 @@
 		    type: 'POST',
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully added",'success')
+					alert_toast("Données ajoutées avec succès",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
 
 				}
 				else if(resp==2){
-					alert_toast("Data successfully updated",'success')
+					alert_toast("Données mises à jour avec succès",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
@@ -131,7 +131,7 @@
 		end_load()
 	})
 	$('.delete_course').click(function(){
-		_conf("Are you sure to delete this course?","delete_course",[$(this).attr('data-id')])
+		_conf("Etes-vous sûr de vouloir supprimer ce cours ?","delete_course",[$(this).attr('data-id')])
 	})
 	function delete_course($id){
 		start_load()
@@ -141,7 +141,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Données supprimées avec succès",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

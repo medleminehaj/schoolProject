@@ -10,7 +10,7 @@ ob_end_flush();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>School Faculty Scheduling System</title>
+  <title>Système de planification des horaires des professeurs de l'école</title>
  	
 
 <?php include('./header.php'); ?>
@@ -50,12 +50,12 @@ header("location:index.php");
   				<div class="card-body">
   						
   					<form id="login-form" >
-					  <h4><b>Welcome To Faculty Scheduling System</b></h4>
+					  <h4><b>Système de planification des horaires des professeurs de l'école</b></h4>
   						<div class="form-group">
-  							<label for="id_no" class="control-label">Please enter your Faculty ID No.</label>
+  							<label for="id_no" class="control-label">Veuillez saisir votre numéro d'identification de faculté.</label>
   							<input type="text" id="id_no" name="id_no" class="form-control">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
+  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Se connecter</button></center>
   					</form>
   				</div>
   			</div>
@@ -71,7 +71,7 @@ header("location:index.php");
 <script>
 	$('#login-form').submit(function(e){
 		e.preventDefault()
-		$('#login-form button[type="button"]').attr('disabled',true).html('Logging in...');
+		$('#login-form button[type="button"]').attr('disabled',true).html('Connexion...');
 		if($(this).find('.alert-danger').length > 0 )
 			$(this).find('.alert-danger').remove();
 		$.ajax({
@@ -87,7 +87,7 @@ header("location:index.php");
 				if(resp == 1){
 					location.href ='index.php';
 				}else{
-					$('#login-form').prepend('<div class="alert alert-danger">ID Number is incorrect.</div>')
+					$('#login-form').prepend('<div class="alert alert-danger">Le numéro d\'identification est incorrect.</div>')
 					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
 				}
 			}

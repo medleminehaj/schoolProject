@@ -16,13 +16,13 @@
   		
   		</div>
       <div class="col-md-4 float-left text-white">
-        <large><b>School Faculty Scheduling System</b></large>
+        <large><b>Système de planification des horaires des professeurs de l'école</b></large>
       </div>
 	  	<div class="float-right">
         <div class=" dropdown mr-4">
             <a href="#" class="text-white dropdown-toggle"  id="account_settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['login_name'] ?> </a>
               <div class="dropdown-menu" aria-labelledby="account_settings" style="left: -2.5em;">
-                <a class="dropdown-item" href="admin/ajax.php?action=logout2"><i class="fa fa-power-off"></i> Logout</a>
+                <a class="dropdown-item" href="admin/ajax.php?action=logout2"><i class="fa fa-power-off"></i> Déconnexion</a>
               </div>
         </div>
       </div>

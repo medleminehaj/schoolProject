@@ -13,7 +13,7 @@ if($qry->num_rows > 0){
 		<div class="card-body">
 			<form action="" id="manage-settings">
 				<div class="form-group">
-					<label for="name" class="control-label">System Name</label>
+					<label for="name" class="control-label">Nom du système</label>
 					<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($meta['name']) ? $meta['name'] : '' ?>" required>
 				</div>
 				<div class="form-group">
@@ -25,7 +25,7 @@ if($qry->num_rows > 0){
 					<input type="text" class="form-control" id="contact" name="contact" value="<?php echo isset($meta['contact']) ? $meta['contact'] : '' ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="about" class="control-label">About Content</label>
+					<label for="about" class="control-label">À propos du contenu</label>
 					<textarea name="about" class="text-jqte"><?php echo isset($meta['about_content']) ? $meta['about_content'] : '' ?></textarea>
 
 				</div>
@@ -37,7 +37,7 @@ if($qry->num_rows > 0){
 					<img src="<?php echo isset($meta['cover_img']) ? 'assets/uploads/'.$meta['cover_img'] :'' ?>" alt="" id="cimg">
 				</div>
 				<center>
-					<button class="btn btn-info btn-primary btn-block col-md-2">Save</button>
+					<button class="btn btn-info btn-primary btn-block col-md-2">Sauvegarder</button>
 				</center>
 			</form>
 		</div>
@@ -78,7 +78,7 @@ if($qry->num_rows > 0){
 			},
 			success:function(resp){
 				if(resp == 1){
-					alert_toast('Data successfully saved.','success')
+					alert_toast('Données enregistrées avec succès.','success')
 					setTimeout(function(){
 						location.reload()
 					},1000)

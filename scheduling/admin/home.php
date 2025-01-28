@@ -63,7 +63,7 @@
             success:function(resp){
                 resp=JSON.parse(resp)
                 if(resp.status==1){
-                    alert_toast("Data successfully saved",'success')
+                    alert_toast("Données enregistrées avec succès",'success')
                     setTimeout(function(){
                         location.reload()
                     },800)
@@ -98,7 +98,7 @@
                             end_load()
 
                         }else if(resp.status == 2){
-                            alert_toast("Unknow tracking id.",'danger');
+                            alert_toast("ID de suivi inconnu.",'danger');
                             end_load();
                         }
                     }
